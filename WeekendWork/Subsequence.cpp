@@ -1,0 +1,25 @@
+// Is Subsequence
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int m = s.size(), n = t.size(), i = 0, j = 0;
+        while(i < m && j < n) {
+            if(s[i] == t[j]) i++;
+            j++;
+        }
+        return i == m;
+    }
+};
+
+int main(){
+    int n;
+    cin>>n;
+    string s,t;
+    cin>>s>>t;
+    Solution ob;
+    cout<<ob.isSubsequence(s,t);
+    return 0;
+}
