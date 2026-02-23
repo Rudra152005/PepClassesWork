@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct TreeNode{
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int val){
+        this->val = val;
+        left = right = NULL;
+    }
+};
+
+class Solution{
+    public:
+    bool ismirror(TreeNode* left, TreeNode* right){
+        if(!left && !right) return true;
+        if(!left || !right) return false;
+        if(left->val != right->val) return false;
+        return ismirror(left->left, right->right) && ismirror(left->right, right->left);
+    }
+    bool isSymmetric(TreeNode* root) {
+        if(!root) return true;
+        return ismirror(root->left, root->right);
+    }
+};
